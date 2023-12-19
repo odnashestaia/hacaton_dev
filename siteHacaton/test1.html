@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav
+        class="navbar navbar-expand-lg fixed-top bg-dark"
+        data-bs-theme="dark"
+      >
+        <div class="container">
+          <a class="navbar-brand" href="index.html"
+            ><img src="images/svg/logotype.svg" width="100px" height="100px"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Переключатель навигации"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav m-auto" aria-labelledby="navDrop">
+              <li class="nav-item">
+                <a href="index.html"><button class="btn btn-dark ms-2">Главная</button></a>
+              </li>
+              <li class="nav-item">
+                <a href="kurs.html"><button class="btn btn-dark ms-2">Курсы</button></a>
+              </li>
+              <li class="nav-item">
+                <a href="chat.html"><button class="btn btn-dark ms-2" >Интерактив</button></a>
+              </li>
+              <li class="nav-item">
+                <a href="rating.html"><button class="btn btn-dark ms-2">Рейтинг</button></a>
+              </li>
+            </ul>
+            <a href="reg-aut-forms.html"><button
+              type="button"
+              class="btn btn-dark ms-2"
+            >
+              Войти
+            </button> </a> 
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- End header -->
+  </head>
+  <body>
+    <div class="content">
+      <div class="container">
+        <div class="title-sheet"><h2 class="text-center mb-5">Тест. Кибербезопасность</h2></div>
+        <div class="test shadow-lg p-3 mb-5 rounded"> 
+            <form action="">
+              <h6>1. Что такое кибербезопасность?</h6>
+              <div class="form-check">
+                <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  совокупность действий по защите систем от цифровых угроз и сохранению целостности и конфиденциальности данных
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Безопасность киборгов.   
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Соединение компьютеров с автоматизированными системами.
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Общее название для всех типов криминальной активности, совершаемой с использованием вычислительных машин и/или Интернета.  
+                </label>
+              </div>
+            </form>
+            <form action="">
+              <h6 class="mt-3">2. Что такое киберпреступность? </h6>
+              <div class="form-check">
+                  <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Преступление киборгов.
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    деятельность, в рамках которой используются либо атакуются компьютер, компьютерная сеть или сетевое устройство. 
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    Преступления с использованием технологий кибернизации.
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    Набор процессов, передовых практик и технологий, которые помогают защитить критически важные системы и сети от цифровых атак.  
+                  </label>
+                </div>
+              </form>
+              <form action="">
+                <h6 class="mt-3">3. Что относится к основным видам угроз? </h6>
+                <div class="form-check">
+                    <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Вредоносное программное обеспечение.
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      Фишинг.
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      DDoS-атака.
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      Все вышеперечисленное.
+                    </label>
+                  </div>
+              </form>
+                <form action="">
+                  <h6 class="mt-3">4. Что относится к киберграмотности?</h6>
+                  <div class="form-check">
+                      <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        Надёжные пароли.
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        Избегание онлайн-покупок.
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        Подключаться только общественному Wi-Fi.
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        Отсутстиве двухфакторной аутентификации.
+                      </label>
+                    </div>
+                  </form>
+                  <form action="">
+                    <h6 class="mt-3">5. Что обозначает «https: //» в начале URL-адреса, а не «http: //» (без буквы «s»)?</h6>
+                    <div class="form-check">
+                        <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Сайт недоступен для определенных компьютеров.
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Информация, введенная на сайт, зашифрована.
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Сайт имеет особое высокое разрешение.
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Ничего из вышеперечисленного.
+                        </label>
+                      </div>
+                    </form>
+                    <form action="">
+                      <h6 class="mt-3"> 6. Что из следующего является примером «фишинговой» атаки?</h6>
+                      <div class="form-check">
+                          <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            Создание поддельного веб-сайта, который выглядит почти идентично реальному веб-сайту, чтобы обманом заставить пользователей ввести свои данные для входа.
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            Отправка кому-то электронного письма, содержащего вредоносную ссылку, замаскированную под письмо от знакомого человека.
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            Отправка кому-либо текстового сообщения, содержащего вредоносную ссылку, замаскированную под уведомление о том, что этот человек выиграл в лотерею.
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            Все вышеперечисленное. 
+                          </label>
+                        </div>
+                      </form>
+                      <form action="">
+                        <h6 class="mt-3">7. Какой из следующих паролей наиболее безопасный?</h6>
+                        <div class="form-check">
+                            <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              123456qwerty.
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                              Дата рождения или прочая личная информация (любимый фильм, имя домашнего животного).
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                              1qAz2wSx3eDc@.
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                              Android1234.
+                            </label>
+                          </div>
+                      </form>
+                        <form action="">
+                          <h6 class="mt-3">8. . Что является примером телекомуникационного преступления?
+
+                            
+                            
+                            
+                            </h6>
+                          <div class="form-check">
+                              <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                              <label class="form-check-label" for="flexRadioDefault1">
+                                Руткит.
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                              <label class="form-check-label" for="flexRadioDefault2">
+                                DDOS-атака.
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                              <label class="form-check-label" for="flexRadioDefault2">
+                                Ботнет.
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                              <label class="form-check-label" for="flexRadioDefault2">
+                                Ни одно из перечисленного.
+                              </label>
+                            </div>
+                        </form>
+                          <form action="">
+                              <h6 class="mt-3">9. Похищение цифровой личности это?</h6>
+                            <div class="form-check">
+                                <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                  Ни одно из перечисленного.
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                 Рассылка спама.
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                  Неправомерное завладение профилем в социальной сети.
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                  Выманивание денежных средств.
+                                </label>
+                              </div>
+                          </form>
+                          <form action="">
+                            <h6 class="mt-3">10. Основными рисками информационной безопасности являются:
+                              
+                              
+                             
+                              </h6>
+                              <div class="form-check">
+                                  <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                  <label class="form-check-label" for="flexRadioDefault1">
+                                    Искажение, уменьшение объема, перекодировка информации.
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                  <label class="form-check-label" for="flexRadioDefault2">
+                                    Техническое вмешательство, выведение из строя оборудования сети.
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                  <label class="form-check-label" for="flexRadioDefault2">
+                                    Потеря, искажение, утечка информации.
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input radio" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                  <label class="form-check-label" for="flexRadioDefault2">
+                                    Увеличение трафика сайта, сбой в работе сайта.
+                                  </label>
+                                </div>
+                          </form>
+              <div class="d-flex mt-5 justify-content-center">
+                <!-- <img src="images/НАО100.png" alt="" class="panel-img"> -->
+                <input type="button" class="btn btn-primary" value="Ответить">
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-top d-flex flex-row footer">
+      <footer class="py-5 container">
+        <div class="d-flex align-items-center flex-column pb-3 mb-3 footer-content">            
+          <img src="images/png/nao.png" alt="" class="f-img">
+          <h5 class="mt-3">Дополнительная информация: </h5>
+          <a href="https://мвд.рф/document/1910260">МВД</a>
+          <a href="https://rkn.gov.ru/">Роскомнадзор</a>
+        </div>
+      </footer>
+  </body>
+</html>

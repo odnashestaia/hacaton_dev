@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Шрифты */
+@font-face {
+  font-family: "bold-gl";
+  src: url("fonts/Asket Extended.ttf");
+}
+
+body {
+  height: 100vh;
+}
+.content {
+  margin-top: 100px;
+}
+
+/* Шапка */
+.navbar-nav a {
+  color: #ffffff;
+}
+
+/* content */
+.about-us img {
+  width: 140px;
+  height: 140px;
+}
+
+/* carousel  */
+.carousel h5 {
+  font-family: bold-gl;
+  font-size: 25px;
+}
+.carousel .btn {
+  font-size: 20px;
+}
+
+/* Стили для чата */
+.chat {
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid black;
+  margin-top: 50px;
+}
+.chat p {
+  margin: 0;
+}
+.chat-header {
+  padding: 10px;
+  background-color: #075e55;
+  color: #ffffff;
+  font-size: 24px;
+}
+.circle {
+  width: 50px;
+  height: 50px;
+  background: rgb(165, 165, 165);
+}
+
+.chat-content {
+  border-top: 1px solid black;
+  background: #efe7de;
+}
+.messages {
+  min-height: 700px;
+  padding: 10px;
+  max-height: 50vh;
+  overflow: auto;
+}
+.get-message {
+  overflow-wrap: break-word;
+  padding: 10px;
+  border-radius: 0 20px 20px 20px;
+  background: #ffffff;
+}
+.post-message {
+  overflow-wrap: break-word;
+  padding: 10px;
+  background: #e2ffc9;
+  border-radius: 20px 0 20px 20px;
+}
+.dialog {
+  background: #efe7de;
+  margin-top: 10px;
+  border-top: 1px solid black;
+}
+.dialog .btn {
+  background: #e2ffc9;
+  color: black;
+  width: 90%;
+  margin: 10px auto;
+}
+.dialog .btn:hover {
+  background-color: #cdffa1;
+}
+.chat-avatar {
+  width: 100%;
+}
+
+/* news  */
+.news img {
+  height: 250px;
+}
+
+.buttons-chat-deactivated * {
+  display: none;
+}
+
+.kurs {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 150px;
+}
+.title-test {
+  width: 60%;
+}
+
+.el-kurs {
+  justify-content: space-between;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.test {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+  background: #fff;
+}
+.stite {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+  background: #fff;
+}
+.image-stite {
+  width: 100%;
+}
+.panel-img {
+  width: 130px;
+}
+.f-img {
+  width: 200px;
+}
+.title-sheet {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 150px;
+}
+.radio {
+  background-color: rgb(241, 234, 234);
+}
+
+
+
+.footer {
+  margin-top: 5%;
+}
