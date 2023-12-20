@@ -1,11 +1,20 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.urls import reverse
-import uuid
 import random
 
 
 User = get_user_model()
+
+
+class Category(models.Model):
+    category_name = models.CharField(max_length=100)
+    img = models.ImageField(
+        verbose_name="Превью теста", blank=True, upload_to="images/test/"
+    )
+
+    def __str__(self) -> str:
+        return self.category_name
 
 
 class Points(models.Model):
@@ -14,7 +23,7 @@ class Points(models.Model):
         verbose_name_plural = "Баллы"
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    points = models.IntegerField()
+    points = models.IntegerField(default=0)
 
 
 class Article(models.Model):
@@ -26,7 +35,10 @@ class Article(models.Model):
     text = models.TextField()
     points = models.IntegerField()
     img = models.ImageField(
-        verbose_name="Превью поста", blank=True, upload_to="images/thumbnails/"
+        verbose_name="Превью статьи", blank=True, upload_to="images/article/"
+    )
+    category = models.ForeignKey(
+        Category, related_name="article_category", on_delete=models.CASCADE
     )
 
     def __str__(self):
@@ -37,8 +49,8 @@ class Article(models.Model):
 
 
 class Question(models.Model):
-    article = models.ForeignKey(
-        Article, related_name="article", on_delete=models.CASCADE
+    category = models.ForeignKey(
+        Category, related_name="question_category", on_delete=models.CASCADE
     )
     question = models.CharField(max_length=100)
     marks = models.IntegerField(default=5)

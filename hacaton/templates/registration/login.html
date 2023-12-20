@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Регистрация и вход</title>
+		<link rel="stylesheet" href="{% static 'css/style.css'%}" />
+	</head>
+	<body class="body-form">
+		<div class="container-form">
+			<input type="checkbox" id="check" />
+			<div class="login form">
+				<header>Войти</header>
+				<form method="post" action="{% url 'login' %}">
+					{% csrf_token %} {{ form.username }} {{ form.password }}
+					<a href="#">Забыли пароль?</a>
+					<input type="submit" class="button" value="Войти" />
+					<input type="hidden" name="next" value="{{ next }}" />
+				</form>
+				<div class="signup">
+					<span class="signup"
+						>Нет учетной записи?
+						<label for="check">Регистрация</label>
+					</span>
+				</div>
+			</div>
+			<div class="registration form">
+				<header>Регистрация</header>
+				<form action="#">
+					<input type="text" placeholder="ФИО" />
+					<input type="text" placeholder="e-mail" />
+					<input type="password" placeholder="Пароль" />
+					<input type="password" placeholder="Подтверждение пароля" />
+					<input type="submit" class="button" value="Регистрация" />
+				</form>
+				<div class="signup">
+					<span class="signup"
+						>Есть учетная запись?
+						<label for="check">Войти</label>
+					</span>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+{% comment %} {% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %} {% if next %} {% if user.is_authenticated %}
+<p>
+	Your account doesn't have access to this page. To proceed, please login with
+	an account that has access.
+</p>
+{% else %}
+<p>Please login to see this page.</p>
+{% endif %} {% endif %}
+
+<form method="post" action="{% url 'login' %}">
+	{% csrf_token %}
+	<table>
+		<tr>
+			<td>{{ form.username.label_tag }}</td>
+			<td>{{ form.username }}</td>
+		</tr>
+
+		<tr>
+			<td>{{ form.password.label_tag }}</td>
+			<td>{{ form.password }}</td>
+		</tr>
+	</table>
+
+	<input type="submit" value="login" />
+	<input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+{# Assumes you setup the password_reset view in your URLconf #}
+<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+{% endcomment %}

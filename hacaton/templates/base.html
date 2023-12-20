@@ -16,9 +16,9 @@
         class="navbar navbar-expand-lg fixed-top bg-dark"
         data-bs-theme="dark"
       >
-        <div class="container">
-          <a class="navbar-brand" href="#"
-            ><img src=" {% static 'images/svg/logotype.svg' %}" width="100px" height="100px"
+        <div class="container header">
+          <a class="navbar-brand" href="{% url "home" %}"
+            ><img src="{% static "images/png/logotype.png"%}" width="80px" height="40px"
           /></a>
           <button
             class="navbar-toggler"
@@ -38,7 +38,7 @@
                 <a href="{% url "home" %}"><button class="btn btn-dark ms-2">Главная</button></a>
               </li>
               <li class="nav-item">
-                <a href="{% url "home" %}"><button class="btn btn-dark ms-2">Курсы</button></a>
+                <a href="{% url "courses" %}"><button class="btn btn-dark ms-2">Курсы</button></a>
               </li>
               <li class="nav-item">
                 <a href="{% url "home" %}"><button class="btn btn-dark ms-2" >Интерактив</button></a>
@@ -47,12 +47,21 @@
                 <a href="{% url "home" %}"><button class="btn btn-dark ms-2">Рейтинг</button></a>
               </li>
             </ul>
-            <a href="reg-aut-forms.html"><button
-              type="button"
-              class="btn btn-dark ms-2"
-            >
-              Войти
-            </button> </a>           
+            {% if not user.is_authenticated %}
+              <a href="{% url "login" %}"><button
+                type="button"
+                class="btn btn-dark ms-2"
+              >
+                Войти
+              </button> </a> 
+            {% else %}
+            <a href="{% url "logout" %}"><button
+                type="button"
+                class="btn btn-dark ms-2"
+              >
+                Выйти
+              </button> </a> 
+            {% endif %}          
           </div>
         </div>
       </nav>
