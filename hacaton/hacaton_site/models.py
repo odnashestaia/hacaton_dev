@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 
 
 class Student(models.Model):
+    """Расширенная таблица юзеров"""
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     points = models.IntegerField(default=0)
 
@@ -14,6 +16,8 @@ class Student(models.Model):
 
 
 class Category(models.Model):
+    """таблица названий тестов"""  # TODO Нужно переименовать
+
     category_name = models.CharField(max_length=100)
     img = models.ImageField(
         verbose_name="Превью теста", blank=True, upload_to="images/test/"
@@ -24,6 +28,8 @@ class Category(models.Model):
 
 
 class Article(models.Model):
+    """Статьи"""
+
     class Meta:
         verbose_name = "Статья"
         verbose_name_plural = "Статьи"
@@ -46,6 +52,8 @@ class Article(models.Model):
 
 
 class Question(models.Model):
+    """вопросы - ссылаются на имена"""
+
     category = models.ForeignKey(
         Category, related_name="question_category", on_delete=models.CASCADE
     )
@@ -67,6 +75,8 @@ class Question(models.Model):
 
 
 class Answer(models.Model):
+    """ответы - ссылаються на вопросы в обе стороны"""
+
     question = models.ForeignKey(
         Question, related_name="question_answer", on_delete=models.CASCADE
     )

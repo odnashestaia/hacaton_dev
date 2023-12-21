@@ -7,11 +7,10 @@ import random
 
 
 def get_user(request) -> dict:
+    """получение юзера что бы ссыллался в шапке"""
     if request.user.is_authenticated:
         user = Student.objects.all()
         student = user.get(user_id=request.user.id)
-
-        # print(user.get(user_id=request.user.id).user.username)
         return {
             "username": student.user.username,
             "first_name": student.user.first_name,
@@ -21,10 +20,12 @@ def get_user(request) -> dict:
 
 
 def home(request):
+    """Главная страница"""
     return render(request, "home.html", get_user(request))
 
 
 def courses(request):
+    """получение данных о тестах и статьях"""
     article_objs = Article.objects.all()
     data = []
     for article_obj in article_objs:
@@ -47,12 +48,15 @@ def courses(request):
 
 
 def article(request, pk):
+    """получение статей"""
     context = get_user(request)
     context["article"] = get_object_or_404(Article, id=pk)
     return render(request, "article.html", context)
 
 
+# TODO сделать get_quiz и get_answers по примеру из quizapp
 def get_quiz(request, pk):
+    """получение вопросов"""
     if not request.user.is_authenticated:
         return redirect("login")
     question_objs = Question.objects.all()
@@ -60,7 +64,7 @@ def get_quiz(request, pk):
         category__category_name__icontains=Category.objects.get(pk=pk)
     )
     question_objs = list(question_objs)
-    random.shuffle(question_objs)
+    random.shuffle(question_objs)  # Вопросы ставятся в рандомном порядке
     data = []
     for num, question_obj in enumerate(question_objs):
         data.append(
@@ -84,6 +88,7 @@ def get_quiz(request, pk):
 
 
 def get_answers(request):
+    """получаем ответы и отдаем результат"""
     res = 0
     if request.method == "POST":
         user = Student.objects.get(user_id=request.user.id)
@@ -100,6 +105,10 @@ def get_answers(request):
 
 
 def register(request):
+    """кастомная регистрация для расширенной модели"""
+
+    # TODO сделать по примеру из quizapp
+
     if request.method == "POST":
         first_name = request.POST.get("first_name", "")
         uname = request.POST.get("username", "")
