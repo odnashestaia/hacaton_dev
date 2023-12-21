@@ -36,12 +36,13 @@ def courses(request):
                 "text": article_obj.text,
                 "img": article_obj.img,
                 "points": article_obj.points,
-                "category_name": article_obj.category.category_name,
-                "category_img": article_obj.category.img,
-                "category_pk": article_obj.category.pk,
+                "test_name": article_obj.name_test.name,
+                "test_img": article_obj.name_test.img,
+                "test_pk": article_obj.name_test.pk,
+                "user_done": article_obj.name_test.user_done,
             }
         )
-
+        print(Article.objects.get(pk=article_obj.pk).name_test.user_done)
     context = {"courses": data}
     context.update(get_user(request))
     return render(request, "courses.html", context)
@@ -60,9 +61,7 @@ def get_quiz(request, pk):
     if not request.user.is_authenticated:
         return redirect("login")
     question_objs = Question.objects.all()
-    question_objs = question_objs.filter(
-        category__category_name__icontains=Category.objects.get(pk=pk)
-    )
+    question_objs = question_objs.filter(name_test=NameTest.objects.get(pk=pk))
     question_objs = list(question_objs)
     random.shuffle(question_objs)  # Вопросы ставятся в рандомном порядке
     data = []
@@ -77,7 +76,7 @@ def get_quiz(request, pk):
         )
     context = {
         "data": data,
-        "category": Category.objects.filter(pk=pk)[0],
+        "category": NameTest.objects.filter(pk=pk)[0],
     }
     context.update(get_user(request))
     return render(

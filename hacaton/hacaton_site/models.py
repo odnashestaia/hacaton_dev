@@ -15,16 +15,19 @@ class Student(models.Model):
         return "Profile for user {}".format(self.user.username)
 
 
-class Category(models.Model):
+class NameTest(models.Model):
     """таблица названий тестов"""  # TODO Нужно переименовать
 
-    category_name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
     img = models.ImageField(
         verbose_name="Превью теста", blank=True, upload_to="images/test/"
     )
+    user_done = models.ManyToManyField(
+        Student, verbose_name="Юзеры прошедшие тест", null=True
+    )
 
     def __str__(self) -> str:
-        return self.category_name
+        return self.name
 
 
 class Article(models.Model):
@@ -40,8 +43,8 @@ class Article(models.Model):
     img = models.ImageField(
         verbose_name="Превью статьи", blank=True, upload_to="images/article/"
     )
-    category = models.ForeignKey(
-        Category, related_name="article_category", on_delete=models.CASCADE
+    name_test = models.ForeignKey(
+        NameTest, related_name="article_category", on_delete=models.CASCADE
     )
 
     def __str__(self):
@@ -54,8 +57,8 @@ class Article(models.Model):
 class Question(models.Model):
     """вопросы - ссылаются на имена"""
 
-    category = models.ForeignKey(
-        Category, related_name="question_category", on_delete=models.CASCADE
+    name_test = models.ForeignKey(
+        NameTest, related_name="question_test", on_delete=models.CASCADE
     )
     question = models.CharField(max_length=100)
     marks = models.IntegerField(default=5)

@@ -31,16 +31,16 @@
 					<div class="col-md-4 mt-3">
 						<div class="card g-h">
 							<img
-								src="{{ course.category_img.url }}"
+								src="{{ course.test_img.url }}"
 								class="card-img-top"
 								alt="..."
 							/>
 							<div class="card-body">
 								<h5 class="card-title text-center">
-									Тест. {{ course.category_name }}
+									Тест. {{ course.test_name }}
 								</h5>
 								<div class="mt-3 mb-3 d-flex justify-content-center">
-									<a href="{% url "get_quiz" course.category_pk %}"
+									<a href="{% url "get_quiz" course.test_pk %}"
 										><input
 											type="button"
 											class="btn btn-primary"

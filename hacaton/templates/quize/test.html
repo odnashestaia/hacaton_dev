@@ -1,9 +1,9 @@
 {% extends 'base.html' %} {% load static %} {% block title %} Тест
-{{category.category_name }} {%endblock%} {% block content %}
+{{category.name }} {%endblock%} {% block content %}
 <div class="content">
 	<div class="container">
 		<div class="title-sheet">
-			<h2 class="text-center mb-5">Тест. {{ category.category_name }}</h2>
+			<h2 class="text-center mb-5">Тест. {{ category.name }}</h2>
 		</div>
 		<div class="test shadow-lg p-3 mb-5 rounded">
 			{% comment %} hx-swap="afterend" {% endcomment %}
