@@ -5,30 +5,38 @@ const DATA0 = [
     messages: [
       {
         value:
-          "Здравствуйте, это служба безопасности вашего N банка. Мы зафиксировали подозрительную активность вашего счета. Вам нужно срочно снять все деньги с карты для того чтобы они не попали мошенникам и перевести их на безопасный счет, который мы сейчас вам создадим чтобы сохранить деньги.",
+          'Добрый день! Меня зовут Алексей, я представляю службу безопасности банка "Сбер". У нас появились подозрения, что ваша банковская карта могла быть скомпрометирована. Мы хотим проверить это и, если потребуется, заблокировать вашу карту, так как на вашей карте были обнаружены подозрительные транзакции, которые не соответствуют вашему обычному паттерну покупок. Мы не можем раскрыть детали сделок из-за конфиденциальности информации, но мы бы хотели провести проверку.',
       },
     ],
     answers: [
       {
         id: "1",
-        value: "Здравствуйте. Сейчас я позвоню в банк и сама все выясню.",
+        value:
+          "Здравствуйте, Алексей. Я не чувствую себя комфортно, давая какую-либо информацию по телефону. Я позвоню в банк самостоятельно и уточню эту информацию.",
         correct: true,
+        valueCorrect:
+          "Верно, обязательно стоит позвонить в банк и сообщить о мошенническом звонке, сообщить данные о мошеннике работнику банка, и в милицию для сообщения о преступнике",
       },
       {
         id: "2",
-        value: "О боже мой! Уже бегу в банкомат!",
+        value:
+          "Здравствуйте, Алексей. Хорошо, давайте проверим. Какие данные вам нужны для проверки?",
         correct: false,
-        valueCorrect: "В этом случае нельзя паниковать и бежать в банкомат",
+        valueCorrect:
+          "Непредоставляейте данные банковских карт, имея на руках номер карты и код безопасности мошенники могут вывести деньги зачастую неиспользуя код безопасности.",
       },
       {
         id: "3",
-        value: "Давайте я просто переведу деньги на безопасный счет",
+        value:
+          "Привет, Алексей. Спасибо за информацию. Можете сразу заблокировать мою карту и выслать новую?",
         correct: false,
-        valueCorrect: "Сотрудник банка никогда не попросит перевода денег.",
+        valueCorrect:
+          "Почти верно, заблокировать карту всегда правильный вариант - в таком случае ваши средства никто не сможет украсть",
       },
       {
         id: "4",
-        value: "Куда переводить деньги?",
+        value:
+          "Здравствуйте, Алексей. Я вам верю, какие действия мне следует предпринять?",
         correct: false,
         valueCorrect: "Сотрудник банка никогда не попросит перевода денег.",
       },
@@ -39,33 +47,24 @@ const DATA0 = [
     messages: [
       {
         value:
-          "Нет, вам не нужно звонить в банк. Вы в пустую потратите драгоценное время.",
+          "Мне нужно, чтобы вы подтвердили последние четыре цифры вашей карты и дату её истечения для того, чтобы мы могли провести проверку.",
       },
     ],
     answers: [
       {
         id: "1",
-        value: "Точно, вы правы. Я бегу в банкомат",
+        value:
+          "Хорошо, последние четыре цифры моей карты - это 1234, а срок истечения - 12/23.",
         correct: false,
-        valueCorrect: "Нельзя идти в банкомат.",
+        valueCorrect:
+          "Неверно, сообщая данные карты - вы даете возможность украсть ваши деньги без пристуствия карты, зачастую без кода безопасности",
       },
       {
         id: "2",
-        value:
-          "Я все равно позвоню в банк по их официальному номеру на странице сайта",
+        value: "Я думаю, что это не безопасно делать по телефону.",
         correct: true,
-      },
-      {
-        id: "3",
-        value: "ААААААА, ПАНИКА!!!",
-        correct: false,
-        valueCorrect: "Не паниковать.",
-      },
-      {
-        id: "4",
-        value: "Хорошо, что нужно сделать?",
-        correct: false,
-        valueCorrect: "Сотрудник банка никогда не попросит перевода денег.",
+        valueCorrect:
+          "Верно, никогда не сообщайте номер карты сотрудникам банка, особенно при входящем звонке",
       },
     ],
   },
@@ -73,509 +72,235 @@ const DATA0 = [
     dialog: 3,
     messages: [
       {
-        value: "Продиктуйте нам цифры на обратней стороне карты",
+        value:
+          "Я понимаю ваши опасения, но я уверяю вас, что это необходимо для вашей безопасности. Вашу информацию видят только уполномоченные сотрудники службы безопасности.",
       },
     ],
     answers: [
       {
         id: "1",
-        value: "Сейчас напишу (123)",
+        value: "Нет не блокируйте карту, я же не смогу ничего купить",
         correct: false,
         valueCorrect:
-          "Сотрудник банка никогда не попросит данные о вашей карте.",
+          "Неверно, лучше перестраховаться и сохранить деньги, тогда покупки можно сделать позднее, чем потерять деньги навсегда",
       },
       {
         id: "2",
-        value: "Вы мошенник, до свидания",
-        correct: true,
+        value: "Может мне стоит куда то перевести деньги?",
+        correct: false,
+        valueCorrect:
+          "Неверно, мошенникк попытается воспользоваться этим для вывода денег на свои счета",
       },
       {
         id: "3",
-        value: "Я звоню в банк и все уточню",
+        value:
+          "Все же я позвоню в банк повторно, и заблокирую карту сам, до свиданья.",
         correct: true,
+        valueCorrect:
+          "Верно, закончите разговор и позвоните в банк для перевыпуска карта, есть вероятность что ваши данные могли попасть в общий доступ",
       },
       {
         id: "4",
-        value: "Отправлю вам фото карты",
+        value: "Я раскрыл тебя, немедленно звоню в полицию",
         correct: false,
         valueCorrect:
-          "Сотрудник банка никогда не попросит данные о вашей карте.",
+          "Не стоит вступать в спор с мошнником, и угрожать милицией, тогда преступник сменьшей вероятность сменит номер, обращайтесь сразу",
       },
     ],
   },
 ];
-// const DATA1 = [
-//   {
-//     dialog: 1,
-//     messages: [
-//       {
-//         value: "Папа папа, привет, помоги скорее беда случилась",
-//       },
-//     ],
-//     answers: [
-//       {
-//         id: "1",
-//         value: "Стас, ты, тчто случилось?",
-//         correct: true,
-//       },
-//       {
-//         id: "2",
-//         value: "FFF",
-//         correct: false,
-//       },
-//       {
-//         id: "3",
-//         value: "FFF",
-//         correct: false,
-//       },
-//       {
-//         id: "4",
-//         value: "FFF",
-//         correct: false,
-//       },
-//     ],
-//   },
-//   {
-//     dialog: 2,
-//     messages: [
-//       {
-//         value: "Пап да я, это сын твой Стас, пап я человека сбил",
-//       },
-//     ],
-//     answers: [
-//       {
-//         id: "1",
-//         value: "Точно, вы правы. Я бегу в банкомат",
-//         correct: false,
-//       },
-//       {
-//         id: "2",
-//         value: "Как? Что случилось? Что делать?",
-//         correct: true,
-//       },
-//       {
-//         id: "3",
-//         value: "ААААААА, ПАНИКА!!!",
-//         correct: false,
-//       },
-//       {
-//         id: "4",
-//         value: "Хорошо, что нужно сделать?",
-//         correct: false,
-//       },
-//     ],
-//   },
-//   {
-//     dialog: 3,
-//     messages: [
-//       {
-//         value:
-//           "Да вот ехал на машине с другом, пьяный и убил. Можем договорится с ментами за 500 тысяч",
-//       },
-//     ],
-//     answers: [
-//       {
-//         id: "1",
-//         value: "УЖС",
-//         correct: false,
-//       },
-//       {
-//         id: "2",
-//         value: "Конечно сейчас скину",
-//         correct: false,
-//       },
-//       {
-//         id: "3",
-//         value: "Мошенник!",
-//         correct: true,
-//       },
-//       {
-//         id: "4",
-//         value: "УЖС",
-//         correct: false,
-//       },
-//     ],
-//   },
-// ];
-// const DATA2 = [
-//   {
-//     dialog: 1,
-//     messages: [
-//       {
-//         value:
-//           "Лариса Васильевна здравствуйте, вас беспокоят из банка Тинькофф",
-//       },
-//     ],
-//     answers: [
-//       {
-//         id: "1",
-//         value: "Здравствуйте,ой, чем могу помочь?",
-//         correct: true,
-//       },
-//       {
-//         id: "2",
-//         value: "adasdasdas",
-//         correct: false,
-//       },
-//       {
-//         id: "3",
-//         value: "asdasdasdasdsdfd",
-//         correct: false,
-//       },
-//       {
-//         id: "4",
-//         value: "sdfdsfd fds fds fds?",
-//         correct: false,
-//       },
-//     ],
-//   },
-//   {
-//     dialog: 2,
-//     messages: [
-//       {
-//         value: "Мы проверяем актуальность мобильных номеров",
-//       },
-//     ],
-//     answers: [
-//       {
-//         id: "1",
-//         value: "EXIT",
-//         correct: false,
-//       },
-//       {
-//         id: "2",
-//         value: "Хорошо, что нужно сделать",
-//         correct: true,
-//       },
-//       {
-//         id: "3",
-//         value: "ДАСВИДАНИЯ",
-//         correct: false,
-//       },
-//       {
-//         id: "4",
-//         value: "Я НА СВЕТСКОМ УЖИНЕ",
-//         correct: false,
-//       },
-//     ],
-//   },
-//   {
-//     dialog: 3,
-//     messages: [
-//       {
-//         value:
-//           "Сейчас вам придет смс от банка, скажите пожалуйста цифры и ваш номер телефона останется в базе.",
-//       },
-//     ],
-//     answers: [
-//       {
-//         id: "1",
-//         value: "УЖС",
-//         correct: false,
-//       },
-//       {
-//         id: "2",
-//         value: "УЖС",
-//         correct: false,
-//       },
-//       {
-//         id: "3",
-//         value: "4321 хорошего дня",
-//         correct: true,
-//       },
-//       {
-//         id: "4",
-//         value: "УЖС",
-//         correct: false,
-//       },
-//     ],
-//   },
-// ];
-// const DATA3 = [
-//   {
-//     dialog: 1,
-//     messages: [
-//       {
-//         value: "Папа папа, привет, помоги скорее беда случилась",
-//       },
-//     ],
-//     answers: [
-//       {
-//         id: "1",
-//         value: "Стас, ты, тчто случилось?",
-//         correct: true,
-//       },
-//       {
-//         id: "2",
-//         value: "FFF",
-//         correct: false,
-//       },
-//       {
-//         id: "3",
-//         value: "FFF",
-//         correct: false,
-//       },
-//       {
-//         id: "4",
-//         value: "FFF",
-//         correct: false,
-//       },
-//     ],
-//   },
-//   {
-//     dialog: 2,
-//     messages: [
-//       {
-//         value: "Пап да я, это сын твой Стас, пап я человека сбил",
-//       },
-//     ],
-//     answers: [
-//       {
-//         id: "1",
-//         value: "Точно, вы правы. Я бегу в банкомат",
-//         correct: false,
-//       },
-//       {
-//         id: "2",
-//         value: "Как? Что случилось? Что делать?",
-//         correct: true,
-//       },
-//       {
-//         id: "3",
-//         value: "ААААААА, ПАНИКА!!!",
-//         correct: false,
-//       },
-//       {
-//         id: "4",
-//         value: "Хорошо, что нужно сделать?",
-//         correct: false,
-//       },
-//     ],
-//   },
-//   {
-//     dialog: 3,
-//     messages: [
-//       {
-//         value:
-//           "Да вот ехал на машине с другом, пьяный и убил. Можем договорится с ментами за 500 тысяч",
-//       },
-//     ],
-//     answers: [
-//       {
-//         id: "1",
-//         value: "УЖС",
-//         correct: false,
-//       },
-//       {
-//         id: "2",
-//         value: "Конечно сейчас скину",
-//         correct: false,
-//       },
-//       {
-//         id: "3",
-//         value: "Мошенник!",
-//         correct: true,
-//       },
-//       {
-//         id: "4",
-//         value: "УЖС",
-//         correct: false,
-//       },
-//     ],
-//   },
-// ];
-// const DATA4 = [
-//   {
-//     dialog: 1,
-//     messages: [
-//       {
-//         value:
-//           "Здравствуйте, с вашего крипто кошелька пытаются украсть 10000 биткоинов",
-//       },
-//     ],
-//     answers: [
-//       {
-//         id: "1",
-//         value: "ЧТТООООО!!?? ДАК КАК ТАК?? ЧТО ДЕЛАТЬ?",
-//         correct: true,
-//       },
-//       {
-//         id: "2",
-//         value: "РАЗВОД НА ЧЕБУРЕК",
-//         correct: false,
-//       },
-//       {
-//         id: "3",
-//         value: "ХОХЛОРАЗВОД",
-//         correct: false,
-//       },
-//       {
-//         id: "4",
-//         value: "У меня нет криптокошелька",
-//         correct: false,
-//       },
-//     ],
-//   },
-//   {
-//     dialog: 2,
-//     messages: [
-//       {
-//         value:
-//           "Сейчас на вашу почту придет код, пришлите его нам, и мы вам поможем",
-//       },
-//     ],
-//     answers: [
-//       {
-//         id: "1",
-//         value: "Я звоню в фсб и цру",
-//         correct: false,
-//       },
-//       {
-//         id: "2",
-//         value: "Вот мой код - 1488",
-//         correct: true,
-//       },
-//       {
-//         id: "3",
-//         value: "ААААААА, ПАНИКА!!!",
-//         correct: false,
-//       },
-//       {
-//         id: "4",
-//         value: "Аллах акбар",
-//         correct: false,
-//       },
-//     ],
-//   },
-//   {
-//     dialog: 3,
-//     messages: [
-//       {
-//         value: "ТААК, а теперь нажмите на ту кнопку",
-//       },
-//     ],
-//     answers: [
-//       {
-//         id: "1",
-//         value: "На зеленую?",
-//         correct: false,
-//       },
-//       {
-//         id: "2",
-//         value: "На желтую?",
-//         correct: false,
-//       },
-//       {
-//         id: "3",
-//         value: "нажал на красную",
-//         correct: true,
-//       },
-//       {
-//         id: "4",
-//         value: "тут нет кнопок",
-//         correct: false,
-//       },
-//     ],
-//   },
-// ];
-// const DATA5 = [
-//   {
-//     dialog: 1,
-//     messages: [
-//       {
-//         value:
-//           "Здравствуйте, я стас какай просто и у меня закончились деньги, помогите пожалуста, я вам сигну сделаю",
-//       },
-//     ],
-//     answers: [
-//       {
-//         id: "1",
-//         value: "ок, что тебе надо?",
-//         correct: true,
-//       },
-//       {
-//         id: "2",
-//         value: "аваываыв",
-//         correct: false,
-//       },
-//       {
-//         id: "3",
-//         value: "ываапп",
-//         correct: false,
-//       },
-//       {
-//         id: "4",
-//         value: "цукцуавы",
-//         correct: false,
-//       },
-//     ],
-//   },
-//   {
-//     dialog: 2,
-//     messages: [
-//       {
-//         value: "ООО СПС, дай ищо",
-//       },
-//     ],
-//     answers: [
-//       {
-//         id: "1",
-//         value: "не дам",
-//         correct: false,
-//       },
-//       {
-//         id: "2",
-//         value: "держи",
-//         correct: true,
-//       },
-//       {
-//         id: "3",
-//         value: "ыфвфывы",
-//         correct: false,
-//       },
-//       {
-//         id: "4",
-//         value: "авыаываываыв",
-//         correct: false,
-//       },
-//     ],
-//   },
-//   {
-//     dialog: 3,
-//     messages: [
-//       {
-//         value: "выауавыацуавыаувыавыаыва",
-//       },
-//     ],
-//     answers: [
-//       {
-//         id: "1",
-//         value: "выавыавыа",
-//         correct: false,
-//       },
-//       {
-//         id: "2",
-//         value: "ываывавыаваываыв",
-//         correct: false,
-//       },
-//       {
-//         id: "3",
-//         value: "ываывавыаыаваыва",
-//         correct: true,
-//       },
-//       {
-//         id: "4",
-//         value: "ываывауцыавыаыуавыа",
-//         correct: false,
-//       },
-//     ],
-//   },
-// ];
-// const DATALIST = [DATA0, DATA1, DATA2, DATA3, DATA4, DATA5];
-const DATALIST = [DATA0];
+const DATA1 = [
+  {
+    dialog: 1,
+    messages: [
+      {
+        value:
+          "Здравствуйте, это Сергей Петрович из вашего банка. Мы заметили подозрительную активность на вашем счете и хотели бы вас об этом уведомить.",
+      },
+    ],
+    answers: [
+      {
+        id: "1",
+        value: "О, действительно? Что именно произошло?",
+        correct: false,
+        valueCorrect:
+          "Неверно, не стоит давать мошенику говорить, он может получить финансовую информацию, даже если не получит деньги от вас напрямую",
+      },
+      {
+        id: "2",
+        value: "Это странно, я не делал никаких транзакций.",
+        correct: false,
+        valueCorrect: "Неверно, не сообщайте информацию о покупка кому то либо",
+      },
+      {
+        id: "3",
+        value:
+          "Я не знаю никакого Сергея Петровича, вы точно из моего банка? Я сейчас сам перезвоню в банк.",
+        correct: true,
+        valueCorrect:
+          "Верно, следует закончить разговор и обратиться в банк самостельно",
+      },
+      {
+        id: "4",
+        value: "Повторите, из какого банка?",
+        correct: false,
+        valueCorrect:
+          "Почти Верно. Задайте встречный вопрос, сбивая звонящего с выученного текста, заставляя нервничать и выдать себя",
+      },
+    ],
+  },
+  {
+    dialog: 2,
+    messages: [
+      {
+        value:
+          "На вашем счету были совершены несколько транзакций из-за границы. Мы можем заблокировать ваш счет для безопасности.",
+      },
+    ],
+    answers: [
+      {
+        id: "1",
+        value: "Что мне нужно сделать?",
+        correct: false,
+        valueCorrect:
+          "Неверно, не стоит делать каких либо дейсчтвий с вашим счетом в телефоном звонке, если вы не знаете звонящего",
+      },
+      {
+        id: "2",
+        value: "Да, пожалуйста, заблокируйте его.",
+        correct: false,
+        valueCorrect:
+          "Почти верно, если это действительно сотрудник банка - он заблокирует карту и вы получите уведомление об этом. Но будьте бдительны, проверяйте с какого номера поступило смс",
+      },
+      {
+        id: "3",
+        value: "Я не путешествовал за границу, это должна быть ошибка.",
+        correct: false,
+        valueCorrect:
+          "Неверно, не сообщайте какие либо данные о своей жизни, об уровнее дохода и прочем",
+      },
+      {
+        id: "4",
+        value: "Хорошо, я сейчас перезвоню вам и перевыпущу карту, спасибо. ",
+        correct: true,
+        valueCorrect:
+          "Верно, свяжитесь с банком напрямую, и удостоверьтесь что позвонили правильно.",
+      },
+    ],
+  },
+  {
+    dialog: 3,
+    messages: [
+      {
+        value:
+          "Чтобы заблокировать ваш счет, мне нужно будет пройти через некоторые процедуры безопасности. Можете ли вы подтвердить свой номер счета и пин-код?",
+      },
+    ],
+    answers: [
+      {
+        id: "1",
+        value: "Я не уверен, что могу дать вам эту информацию по телефону.",
+        correct: true,
+        valueCorrect:
+          "Верно, свяжитесь с банком напрямую, и удостоверьтесь что позвонили правильно.",
+      },
+      {
+        id: "2",
+        value: "Это не звучит правильно. Я позвоню в банк самостоятельно.",
+        correct: true,
+        valueCorrect:
+          "Верно, лучше перестраховаться и позвонить в банк самому, будучи увереным куда звоните",
+      },
+      {
+        id: "3",
+        value: "Да, конечно, вот номер.",
+        correct: false,
+        valueCorrect:
+          "Неверно, не сообщайте финансовую информацию кому либо, мошшеник может воспользоваться сервисами помогающими обходить защиту",
+      },
+      {
+        id: "4",
+        value: "Давайте я лучше переведу деньги на другой счет",
+        correct: false,
+        valueCorrect:
+          "Неверно, заблокируйте счет, и сразу позвоните в банк для проверки",
+      },
+    ],
+  },
+  {
+    dialog: 4,
+    messages: [
+      {
+        value:
+          "Если вы не дадите мне эту информацию, мы не сможем заблокировать ваш счет. Ваши средства могут быть украдены.",
+      },
+    ],
+    answers: [
+      {
+        id: "1",
+        value: "Конечно, я сейчас все скажу",
+        correct: false,
+        valueCorrect:
+          "Неверно, не сообщайте номер карты кому либо, это приведет к краже",
+      },
+      {
+        id: "2",
+        value: "Я понимаю риски, но я все равно позвоню в банк сам.",
+        correct: true,
+        valueCorrect:
+          "Вверно, стоит позвонить в банк и сообщить  о мошенничестве",
+      },
+      {
+        id: "3",
+        value: "Я заблокирую карту сам.",
+        correct: true,
+        valueCorrect:
+          "Верно, стоит производить опреации через банковское приложение, так вы обезопастите себя от вмешательства",
+      },
+      {
+        id: "4",
+        value: "Мне как раз пришла смс, сейчас я вам продиктую.",
+        correct: false,
+        valueCorrect:
+          "Неверно, не сообщайте коды и прочую информацию о счете, настоящий сотрудник банка имеет доступ к вашему счету напряму.",
+      },
+    ],
+  },
+];
+
+const DATALIST = [DATA0, DATA1];
+let DATA;
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
+}
+
+newChat();
+
+var ind = 0;
+
+const nextChat = () => {
+  messages.innerHTML = "";
+  buttonsChat.className = "buttons-chat-deactivated";
+  results.innerHTML = "";
+  newChat();
+  renderChat(0);
+};
+
+function newChat() {
+  let f = true;
+  let indexDatalist;
+  while (f) {
+    let indexChatHtml = document.querySelector(".chat");
+    indexDatalist = getRandomInt(DATALIST.length);
+    if (indexChatHtml.getAttribute("id") == indexDatalist) {
+      indexDatalist = getRandomInt(DATALIST.length);
+    } else {
+      DATA = DATALIST[indexDatalist];
+      indexChatHtml.id = indexDatalist;
+      f = false;
+    }
+  }
 }
 
 let localResult = {};
@@ -588,7 +313,6 @@ const results = document.querySelector(".results");
 const bntRestart = document.querySelector(".btn-restart");
 const btnNext = document.querySelector(".btn-next");
 let indicator = 0;
-let DATA = DATALIST[getRandomInt(1)];
 
 // функции
 const renderChat = (index) => {
@@ -632,6 +356,7 @@ const renderChat = (index) => {
   message.className = "get-message w-50 me-auto";
   message.innerHTML = `${renderMessages()}`;
   messages.append(message);
+  messages.scrollTop = messages.scrollHeight;
 };
 
 const printMessage = (str, color, id) => {
@@ -642,24 +367,29 @@ const printMessage = (str, color, id) => {
     DATA[Number(dialogAnswers.dataset.currentStep)].answers[id].valueCorrect
   ) {
     message.innerHTML = `
-    ${str}           
+    <span>${str}</span>           
      <hr>
-    ${
+    <span class="text-body-secondary">${
       DATA[Number(dialogAnswers.dataset.currentStep)].answers[id].valueCorrect
-    }`;
+    }</span>`;
   } else {
     message.innerHTML = `
-    ${str}           
+    <span>${str}</span>           
+     <hr>
+    <span class="text-body-secondary">${
+      DATA[Number(dialogAnswers.dataset.currentStep)].answers[id].valueCorrect
+    }</span>           
     `;
   }
 
   messages.append(message);
+  messages.scrollTop = messages.scrollHeight;
 };
 
 const renderResults = () => {
   // Для результатов тестирования
   results.innerHTML =
-    "<div class='w-50 m-auto text-center text-bg-success p-3'>Вы успешно прошли интерактив!</div>";
+    "<div class='w-50 m-auto text-center text-bg-success p-3 mt-3'>Вы успешно прошли интерактив!</div>";
 };
 
 const renderIndicator = (currentStep) => {
@@ -667,12 +397,10 @@ const renderIndicator = (currentStep) => {
 };
 
 chat.addEventListener("click", (event) => {
-  // С начала
-
   if (event.target.classList.contains("btn")) {
     if (DATA.length === Number(dialogAnswers.dataset.currentStep)) {
       buttonsChat.className =
-        "row d-flex flex-row justify-content-center mt-5 buttons-chat-visible";
+        "d-flex flex-column justify-content-center mt-3 buttons-chat-visible align-items-center";
       dialogAnswers.innerHTML = "";
       renderResults();
     }
@@ -684,7 +412,7 @@ chat.addEventListener("click", (event) => {
       printMessage(event.target.innerHTML, "#e2ffc9", event.target.id - 1);
       if (DATA.length === Number(dialogAnswers.dataset.currentStep) + 1) {
         buttonsChat.className =
-          "row d-flex flex-row justify-content-center gap-5 mt-5 buttons-chat-visible";
+          "d-flex flex-column justify-content-center mt-3 buttons-chat-visible align-items-center";
         renderResults();
         dialogAnswers.innerHTML = "";
       } else {
@@ -699,7 +427,7 @@ chat.addEventListener("click", (event) => {
       );
       localResult[event.target.id] = event.target.value;
       buttonsChat.className =
-        "row d-flex flex-row justify-content-center gap-5 mt-5 buttons-chat-visible";
+        "d-flex flex-column justify-content-center mt-3 buttons-chat-visible align-items-center";
       dialogAnswers.innerHTML = "";
     }
   }
@@ -712,5 +440,4 @@ const restartChat = () => {
   buttonsChat.className = "buttons-chat-deactivated";
   results.innerHTML = "";
   renderChat(0);
-  DATA = DATALIST[getRandomInt(1)];
 };

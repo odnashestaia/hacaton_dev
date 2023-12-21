@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Чат с мошенником
+{%endblock%} {% block content %}
+
+<div class="content">
+	<div class="title-sheet">
+		<h2 class="text-center">
+			Интерактив <br />
+			"Чат с мошенником"
+		</h2>
+	</div>
+	<div class="container">
+		<div class="chat" id="">
+			<div class="chat-header d-flex align-items-center">
+				<img src="{% static "images/avatar-moshenik.jpg" %} " class="circle
+				rounded-circle" />
+				<h4 class="username ms-3">Мошенник</h4>
+			</div>
+			<div class="chat-content d-flex flex-column">
+				<div class="messages d-flex flex-column"></div>
+				<div class="dialog"></div>
+			</div>
+		</div>
+		<div class="row results mt-3"></div>
+		<div
+			class="d-flex flex-column justify-content-center mt-2 buttons-chat-deactivated align-items-center"
+		>
+			<button
+				class="btn btn-danger w-50 btn-restart p-3"
+				onclick="restartChat()"
+			>
+				Попробовать еще раз
+			</button>
+			<button
+				class="btn btn-primary w-50 btn-start p-3 mt-2"
+				onclick="nextChat()"
+			>
+				Попробовать следующий чат
+			</button>
+		</div>
+	</div>
+</div>
+{%endblock%}

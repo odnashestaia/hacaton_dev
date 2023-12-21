@@ -24,6 +24,36 @@ def home(request):
     return render(request, "home.html", get_user(request))
 
 
+def chat(request):
+    """Чат с мошенником"""
+    return render(request, "chat.html", get_user(request))
+
+
+def rating(request):
+    """Рейтинг"""
+    context = get_user(request)
+    users = Student.objects.all()
+    data = []
+    _ = []
+    
+    for user in list(users):
+        _.append(user.points)
+
+    data_sort = sorted(_, key=lambda item: item, reverse=True)
+
+    for points in data_sort:
+        user = Student.objects.get(points=points)
+        data.append(
+            {
+                "username": user.user.username,
+                "name": user.user.first_name,
+                "point": points,
+            }
+        )
+    context["users"] = data
+    return render(request, "rating.html", context)
+
+
 def courses(request):
     """получение данных о тестах и статьях"""
     article_objs = Article.objects.all()

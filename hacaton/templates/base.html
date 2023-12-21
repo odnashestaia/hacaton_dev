@@ -42,7 +42,7 @@
                 <a href="{% url "courses" %}"><button class="btn btn-dark ms-2">Курсы</button></a>
               </li>
               <li class="nav-item">
-                <a href="{% url "home" %}"><button class="btn btn-dark ms-2" >Интерактив</button></a>
+                <a href="{% url "chat" %}"><button class="btn btn-dark ms-2" >Интерактив</button></a>
               </li>
               <li class="nav-item">
                 <a href="{% url "home" %}"><button class="btn btn-dark ms-2">Рейтинг</button></a>
@@ -103,5 +103,6 @@
 </body>
 <script src="{% static 'js/main.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/interactive.js'%}"></script>
 {% block js %} {% endblock %}
 </html>
