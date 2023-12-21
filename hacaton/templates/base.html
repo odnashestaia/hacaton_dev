@@ -7,6 +7,7 @@
     <title>{% block title %} {% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <script src="https://unpkg.com/htmx.org@1.9.9"></script>
     {% block style_css%} {% endblock %}
   </head>
   <body>
@@ -47,21 +48,42 @@
                 <a href="{% url "home" %}"><button class="btn btn-dark ms-2">Рейтинг</button></a>
               </li>
             </ul>
-            {% if not user.is_authenticated %}
-              <a href="{% url "login" %}"><button
+            {% if user.is_authenticated %}
+            <div class="dropdown">
+                <button
+                  onclick="myFunction()"
+                  class="dropbtn btn btn-dark ms-2 dropdown-toggle dropdown-toggle-split"
+                >
+                  Профиль
+                  <span class="visually-hidden"
+                    >Переключатель выпадающего списка</span
+                  >
+                </button>
+                <div id="myDropdown" class="dropdown-content text-start rounded shadow-lg">
+                  {{ first_name}}
+                  <hr class="mt-2 mb-2"/>
+                  Никнейм:  <br>
+                  {{ username }}
+                  <hr class="mt-2 mb-2"/>
+                  Ваши баллы: {{ points }} <br>
+                  Место: 1 <br>
+                  <button href="{% url "logout" %}" class="btn btn-danger rounded w-100 mt-3 btn-profile">Выйти</button>
+                </div>
+              </div>
+              
+            {% else %}
+                <a href="{% url "login" %}"><button
                 type="button"
                 class="btn btn-dark ms-2"
               >
                 Войти
-              </button> </a> 
-            {% else %}
-            <a href="{% url "logout" %}"><button
-                type="button"
-                class="btn btn-dark ms-2"
-              >
-                Выйти
-              </button> </a> 
-            {% endif %}          
+              </button> </a>
+            {% endif %} 
+          </div>
+        </div>
+      </nav>
+    </header>
+                     
           </div>
         </div>
       </nav>
@@ -72,7 +94,7 @@
 <div class="border-top d-flex flex-row footer">
   <footer class="py-5 container">
     <div class="d-flex align-items-center flex-column pb-3 mb-3 footer-content">            
-      <img src="{% static 'images/png/nao.png' %} " alt="" class="f-img">
+      <img src="{% static 'images//svg/footer-logo.svg' %} " alt="" class="f-img">
       <h5 class="mt-3">Дополнительная информация: </h5>
       <a href="https://мвд.рф/document/1910260">МВД</a>
       <a href="https://rkn.gov.ru/">Роскомнадзор</a>

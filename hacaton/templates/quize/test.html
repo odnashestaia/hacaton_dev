@@ -6,7 +6,9 @@
 			<h2 class="text-center mb-5">Тест. {{ category.category_name }}</h2>
 		</div>
 		<div class="test shadow-lg p-3 mb-5 rounded">
-			<form action="">
+			{% comment %} hx-swap="afterend" {% endcomment %}
+			<form hx-post="{% url "get_answers" %}" hx-target="#submit" >
+				{% csrf_token %}
 				{% for question in data %}
 				<h6>{{question.num}}. {{question.question}}</h6>
 				{% for answer in question.answers %}
@@ -14,8 +16,8 @@
 					<input
 						class="form-check-input"
 						type="radio"
+						required
 						name="q{{question.num}}o"
-						id="q{{question.num}}o{{forloop.counter}}"
 						value="{{answer.is_correct}}"
 					/>
 					<label
@@ -26,8 +28,8 @@
 					</label>
 				</div>
 				{% endfor %} {% endfor %}
-				<div class="d-flex mt-5 justify-content-center">
-					<input type="button" class="btn btn-primary" value="Ответить" />
+				<div class="d-flex mt-5 justify-content-center" id="submit">
+					<button class="btn btn-primary" type="submit"> Ответить </button> 
 				</div>
 			</form>
 		</div>

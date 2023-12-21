@@ -1,11 +1,27 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from django.http import JsonResponse
+from django.contrib import messages
 from .models import *
 import random
 
+# from .forms import UserCreateForm
+
+
+def get_user(request) -> dict:
+    if request.user.is_authenticated:
+        user = Student.objects.all()
+        student = user.get(user_id=request.user.id)
+
+        # print(user.get(user_id=request.user.id).user.username)
+        return {
+            "username": student.user.username,
+            "first_name": student.user.first_name,
+            "points": student.points,
+        }
+    return {}
+
 
 def home(request):
-    return render(request, "home.html")
+    return render(request, "home.html", get_user(request))
 
 
 def courses(request):
@@ -26,16 +42,19 @@ def courses(request):
         )
 
     context = {"courses": data}
+    context.update(get_user(request))
     return render(request, "courses.html", context)
 
 
 def article(request, pk):
-    context = {}
+    context = get_user(request)
     context["article"] = get_object_or_404(Article, id=pk)
     return render(request, "article.html", context)
 
 
 def get_quiz(request, pk):
+    if not request.user.is_authenticated:
+        return redirect("login")
     question_objs = Question.objects.all()
     question_objs = question_objs.filter(
         category__category_name__icontains=Category.objects.get(pk=pk)
@@ -52,24 +71,53 @@ def get_quiz(request, pk):
                 "answers": question_obj.get_answers(),
             }
         )
+    context = {
+        "data": data,
+        "category": Category.objects.filter(pk=pk)[0],
+    }
+    context.update(get_user(request))
     return render(
         request,
-        "test.html",
-        {
-            "data": data,
-            "category": Category.objects.filter(pk=pk)[0],
-        },
+        "quize/test.html",
+        context,
     )
 
 
-def get_answers(self, request):
-    mark = Points(user=request.user, total=Question.objects.filter(verified=True).count())
-    for i in range(1, Question.objects.filter(verified=True).count() + 1):
-        q = Question.objects.filter(
-            pk=request.POST.get(f"q{i}", 0), verified=True
-        ).first()
-        if request.POST.get(f"q{i}o", "") == q.correct_option:
-            mark.got += 1
-    mark.save()
-    messages.success(request, "Marks updated")
-    return redirect("result")
+def get_answers(request):
+    res = 0
+    if request.method == "POST":
+        user = Student.objects.get(user_id=request.user.id)
+        question = len(list(dict(request.POST).keys())[1:])
+        for answer in list(dict(request.POST).keys())[1:]:
+            print(dict(request.POST)[answer][0])
+            if str(dict(request.POST)[answer][0]) == "True":
+                res += 1
+        user.points += res
+    context = {"res": res, "all": question}
+    context.update(get_user(request))
+
+    return render(request, "quize/answer.html", context)
+
+
+def register(request):
+    if request.method == "POST":
+        first_name = request.POST.get("first_name", "")
+        uname = request.POST.get("username", "")
+        passwd = request.POST.get("password", "")
+        user = User.objects.filter(username=uname).first()
+        if user is None:
+            user = User(username=uname, first_name=first_name)
+            user.set_password(passwd)
+            user.save()
+            student = Student(user=User.objects.filter(username=uname).first())
+            student.save()
+            messages.success(request, "User created")
+            return redirect("login")
+        else:
+            messages.info(request, "User already exists.")
+            return redirect("login")
+    else:
+        if request.user.is_authenticated:
+            messages.info(request, "You are already logged in")
+            return redirect("home")
+    return render(request, "registration/register.html", get_user(request))

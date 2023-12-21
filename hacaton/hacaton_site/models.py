@@ -1,10 +1,16 @@
-from django.db import models
-from django.contrib.auth import get_user_model
-from django.urls import reverse
 import random
 
+from django.db import models
+from django.urls import reverse
+from django.contrib.auth.models import User
 
-User = get_user_model()
+
+class Student(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    points = models.IntegerField(default=0)
+
+    def __str__(self):
+        return "Profile for user {}".format(self.user.username)
 
 
 class Category(models.Model):
@@ -15,15 +21,6 @@ class Category(models.Model):
 
     def __str__(self) -> str:
         return self.category_name
-
-
-class Points(models.Model):
-    class Meta:
-        verbose_name = "Балл"
-        verbose_name_plural = "Баллы"
-
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    points = models.IntegerField(default=0)
 
 
 class Article(models.Model):

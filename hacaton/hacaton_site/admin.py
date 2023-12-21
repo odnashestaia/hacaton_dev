@@ -13,13 +13,11 @@ class QuestionAdmin(admin.ModelAdmin):
 admin.site.register(Category)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Answer)
+admin.site.register(Article)
 
 
-@admin.register(Article)
-class ArticleAdmin(admin.ModelAdmin):
-    pass
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ["user", "points"]
 
 
-@admin.register(Points)
-class PointsAdmin(admin.ModelAdmin):
-    pass
+admin.site.register(Student, ProfileAdmin)

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "hacaton_site",
+    "crispy_forms",
 ]
 
 MIDDLEWARE = [
@@ -78,7 +79,7 @@ WSGI_APPLICATION = "hacaton.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "hacaton2",
+        "NAME": "hacaton",
         "USER": "postgres",
         "PASSWORD": "prop",
         "HOST": "localhost",
@@ -136,5 +137,9 @@ MEDIA_URL = "media/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-
+# login
 LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "home"
+
+# crispy
+CRISPY_TEMPLATE_PACK = "bootstrap4"
