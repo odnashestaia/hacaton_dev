@@ -6,53 +6,53 @@
 		<div class="title-sheet"><h2 class="text-center mb-2">Курсы</h2></div>
 		<div class="kurs">
 			{% for course in courses %}
-			<h5 class="mt-5">1. {{ course.title }}</h5>
-			<div class="news mt-2">
-				<div class="row">
-					<div class="col-md-4 mt-3">
-						<div class="card g-h">
-							<img src="{{ course.img.url }}" class="card-img-top" alt="..." />
-							<div class="card-body">
-								<h5 class="card-title text-center">
-									Статья. {{ course.title }}
-								</h5>
-								<p class="card-text"></p>
-								<div class="mt-3 mb-3 d-flex justify-content-center">
-									<a href="{% url "article" course.pk %}"
-										><input
-											type="button"
-											class="btn btn-primary"
-											value="Прочитать"
-									/></a>
+				<h5 class="mt-5">{{forloop.counter}} {{ course.title }}</h5>
+				<div class="news mt-2"> 
+					<div class="row">
+						<div class="col-md-4 mt-3">
+							<div class="card g-h">
+								<img src="{{ course.img.url }}" class="card-img-top" alt="..." />
+								<div class="card-body">
+									<h5 class="card-title text-center">
+										Статья. {{ course.title }}
+									</h5>
+									<p class="card-text"></p>
+									<div class="mt-3 mb-3 d-flex justify-content-center">
+										<a href="{% url "article" course.pk %}"
+											><input
+												type="button"
+												class="btn btn-primary"
+												value="Прочитать"
+										/></a>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="col-md-4 mt-3">
-						<div class="card g-h">
-							<img
-								src="{{ course.test_img.url }}"
-								class="card-img-top"
-								alt="..."
-							/>
-							<div class="card-body">
-								<h5 class="card-title text-center">
-									Тест. {{ course.test_name }}
-								</h5>
-								<div class="mt-3 mb-3 d-flex justify-content-center">
-									<a href="{% url "get_quiz" course.test_pk %}"
-										><input
-											type="button"
-											class="btn btn-primary"
-											value="Пройти"
-									/></a>
+						<div class="col-md-4 mt-3">
+							<div class="card g-h">
+								<img
+									src="{{ course.test_img }}"
+									class="card-img-top"
+									alt="..."
+								/>
+								<div class="card-body">
+									<h5 class="card-title text-center">
+										Тест. {{ course.test_name }}
+									</h5>
+									<div class="mt-3 mb-3 d-flex justify-content-center">
+										<a href="{% url "get_quiz" course.test_pk %}"
+											><input
+												type="button"
+												class="btn btn-primary"
+												value="Пройти"
+										/></a>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				{% endfor %}
-			</div>
+			{% endfor %}
 		</div>
 	</div>
 </div>
