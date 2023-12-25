@@ -131,6 +131,7 @@ def get_answers(request, pk):
             if str(dict(request.POST)[answer][0]) == "True":
                 res += 1
         user.points += res
+        user.save()
         context = {"res": res, "all": question}
         context.update(get_user(request))
         NameTest.objects.get(pk=pk).user_done.add(request.user.id)

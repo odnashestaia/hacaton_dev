@@ -1,44 +1,4 @@
-{% load static %} {% load crispy_forms_tags %} {% comment %} <!DOCTYPE html>
-<html lang="ru">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<title>Регистрация и вход</title>
-		<link rel="stylesheet" href="{% static 'css/style.css'%}" />
-	</head>
-	<body class="body-form">
-		<div class="container-form">
-			<input type="checkbox" id="check" />
-			<div class="login form" id="form">
-				<header>Войти</header>
-				<form method="post" action="{% url 'login' %}">
-					{% csrf_token %} {{ form.username }} {{ form.password }}
-					<a href="#">Забыли пароль?</a>
-					<input type="submit" class="button" value="Войти" />
-					<input type="hidden" name="next" value="{{ next }}" />
-				</form>
-				<div class="signup">
-					<span class="signup"
-						>Нет учетной записи?
-						<label for="check">Регистрация</label>
-					</span>
-				</div>
-			</div>
-			<div class="registration form">
-				<header>Регистрация</header>
-				<div class="signup">
-					<span class="signup"
-						>Есть учетная запись?
-						<label for="check">Войти</label>
-					</span>
-				</div>
-			</div>
-		</div>
-	</body>
-</html>
-{% endcomment %}
-
+{% load static %} {% load crispy_forms_tags %}
 <!DOCTYPE html>
 <!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="ru">
@@ -69,13 +29,13 @@
 					/>
 					<label for="" class="mb-1">Пароль</label>
 					<input
-						type="password"
+						type="password" 
 						name="password"
 						placeholder="Введите пароль"
 						class="input-form mb-4 shadow-lg rounded"
 					/>
 					{% comment %} <a href="#">Забыли пароль?</a> {% endcomment %}
-					<input type="submit" class="button" value="Войти" />
+					<input type="submit"  class="btn btn-success" value="Войти" />
 					<input type="hidden" name="next" value="{{ next }}" />
 				</form>
 				{{form.a}}

@@ -45,7 +45,7 @@
 					</div>
 					<h5 class="mt-3">Обучение</h5>
 					<p>Пройдите курсы по кибербезопасности и расширяйте свои знания</p>
-					<a href="{% url "" %}"
+					<a href="{% url "courses" %}"
 						><button class="btn btn-primary">Подробнее</button></a
 					>
 				</div>
@@ -55,7 +55,7 @@
 					</div>
 					<h5 class="mt-3">Интерактивы</h5>
 					<p>Пройдите наши интерактивы с использованием элементов обучения</p>
-					<a href="games-list.html"
+					<a href="{% url "chat" %}"
 						><button class="btn btn-primary">Подробнее</button></a
 					>
 				</div>
@@ -68,7 +68,7 @@
 						Сравните свои результаты с другими пользователями и повышайте свои
 						результаты
 					</p>
-					<a href="rating.html"
+					<a href="{% url "rating" %}"
 						><button class="btn btn-primary">Подробнее</button></a
 					>
 				</div>
