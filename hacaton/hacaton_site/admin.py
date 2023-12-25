@@ -7,6 +7,7 @@ class AnswerAdmin(admin.StackedInline):
 
 
 class QuestionAdmin(admin.ModelAdmin):
+    list_display = ["name_test", "question"]
     inlines = [AnswerAdmin]
 
 

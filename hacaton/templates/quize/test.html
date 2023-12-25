@@ -7,7 +7,7 @@
 		</div>
 		<div class="test shadow-lg p-3 mb-5 rounded">
 			{% comment %} hx-swap="afterend" {% endcomment %}
-			<form hx-post="{% url "get_answers" %}" hx-target="#submit" >
+			<form hx-post="{% url "get_answers" category.id %}" hx-target="#submit" >
 				{% csrf_token %}
 				{% for question in data %}
 				<h6>{{question.num}}. {{question.question}}</h6>

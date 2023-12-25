@@ -19,6 +19,13 @@ def get_user(request) -> dict:
     return {}
 
 
+def get_user_done(article_obj, request):
+    for user in Article.objects.get(pk=article_obj.pk).name_test.user_done.all():
+        if user.user.id == request.user.id:
+            return True
+    return False
+
+
 def home(request):
     """Главная страница"""
     return render(request, "home.html", get_user(request))
@@ -35,7 +42,7 @@ def rating(request):
     users = Student.objects.all()
     data = []
     _ = []
-    
+
     for user in list(users):
         _.append(user.points)
 
@@ -69,10 +76,10 @@ def courses(request):
                 "test_name": article_obj.name_test.name,
                 "test_img": article_obj.name_test.img,
                 "test_pk": article_obj.name_test.pk,
-                "user_done": article_obj.name_test.user_done,
+                "user_done": get_user_done(article_obj, request),
             }
         )
-        print(Article.objects.get(pk=article_obj.pk).name_test.user_done)
+
     context = {"courses": data}
     context.update(get_user(request))
     return render(request, "courses.html", context)
@@ -104,10 +111,7 @@ def get_quiz(request, pk):
                 "answers": question_obj.get_answers(),
             }
         )
-    context = {
-        "data": data,
-        "category": NameTest.objects.filter(pk=pk)[0],
-    }
+    context = {"data": data, "category": NameTest.objects.filter(pk=pk)[0]}
     context.update(get_user(request))
     return render(
         request,
@@ -116,19 +120,20 @@ def get_quiz(request, pk):
     )
 
 
-def get_answers(request):
+def get_answers(request, pk):
     """получаем ответы и отдаем результат"""
     res = 0
     if request.method == "POST":
         user = Student.objects.get(user_id=request.user.id)
         question = len(list(dict(request.POST).keys())[1:])
         for answer in list(dict(request.POST).keys())[1:]:
-            print(dict(request.POST)[answer][0])
+            # print(dict(request.POST)[answer][0])
             if str(dict(request.POST)[answer][0]) == "True":
                 res += 1
         user.points += res
-    context = {"res": res, "all": question}
-    context.update(get_user(request))
+        context = {"res": res, "all": question}
+        context.update(get_user(request))
+        NameTest.objects.get(pk=pk).user_done.add(request.user.id)
 
     return render(request, "quize/answer.html", context)
 
