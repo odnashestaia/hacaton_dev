@@ -89,6 +89,7 @@ def article(request, pk):
     """получение статей"""
     context = get_user(request)
     context["article"] = get_object_or_404(Article, id=pk)
+    context["user_done"] = get_user_done(get_object_or_404(Article, id=pk), request)
     return render(request, "article.html", context)
 
 

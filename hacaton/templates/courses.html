@@ -4,11 +4,11 @@
 <div class="content">
 	<div class="container">
 		<div class="title-sheet"><h2 class="text-center mb-2">Курсы</h2></div>
-		<div class="kurs">
+		<div class="kurs text-center">
 			{% for course in courses %}
 				<h5 class="mt-5">{{forloop.counter}}. {{ course.title }}</h5>
 				<div class="news mt-2"> 
-					<div class="row">
+					<div class="row d-flex justify-content-center">
 						<div class="col-md-4 mt-3">
 							<div class="card g-h">
 								<img src="{{ course.img.url }}" class="card-img-top" alt="..." />
