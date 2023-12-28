@@ -93,7 +93,6 @@ def article(request, pk):
     return render(request, "article.html", context)
 
 
-# TODO сделать get_quiz и get_answers по примеру из quizapp
 def get_quiz(request, pk):
     """получение вопросов"""
     if not request.user.is_authenticated:
@@ -142,8 +141,6 @@ def get_answers(request, pk):
 
 def register(request):
     """кастомная регистрация для расширенной модели"""
-
-    # TODO сделать по примеру из quizapp
 
     if request.method == "POST":
         first_name = request.POST.get("first_name", "")

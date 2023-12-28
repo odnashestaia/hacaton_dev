@@ -317,6 +317,8 @@ let indicator = 0;
 // функции
 const renderChat = (index) => {
   dialogAnswers.innerHTML = "";
+  failtext.className =
+    "d-flex flex-column text-center text-chat-fail visually-hidden";
 
   renderIndicator(index + 1);
 
@@ -396,11 +398,13 @@ const renderIndicator = (currentStep) => {
   indicator = DATA.length;
 };
 
+let failtext = document.querySelector(".text-chat-fail");
+
 chat.addEventListener("click", (event) => {
   if (event.target.classList.contains("btn")) {
     if (DATA.length === Number(dialogAnswers.dataset.currentStep)) {
       buttonsChat.className =
-        "d-flex flex-row justify-content-center buttons-chat-visible align-items-center";
+        "d-flex flex-column justify-content-center buttons-chat-visible align-items-center";
       dialogAnswers.innerHTML = "";
       renderResults();
     }
@@ -412,7 +416,7 @@ chat.addEventListener("click", (event) => {
       printMessage(event.target.innerHTML, "#e2ffc9", event.target.id - 1);
       if (DATA.length === Number(dialogAnswers.dataset.currentStep) + 1) {
         buttonsChat.className =
-          "d-flex flex-row justify-content-center buttons-chat-visible align-items-center";
+          "d-flex flex-column justify-content-center buttons-chat-visible align-items-center";
         renderResults();
         dialogAnswers.innerHTML = "";
       } else {
@@ -420,6 +424,7 @@ chat.addEventListener("click", (event) => {
         renderChat(Number(dialogAnswers.dataset.currentStep) + 1);
       }
     } else {
+      failtext.className = "d-flex flex-column text-center text-chat-fail";
       printMessage(
         event.target.innerHTML,
         "rgb(255, 168, 168)",
@@ -427,7 +432,7 @@ chat.addEventListener("click", (event) => {
       );
       localResult[event.target.id] = event.target.value;
       buttonsChat.className =
-        "d-flex flex-row justify-content-center buttons-chat-visible align-items-center";
+        "d-flex flex-column justify-content-center buttons-chat-visible align-items-center";
       dialogAnswers.innerHTML = "";
     }
   }
@@ -436,6 +441,8 @@ chat.addEventListener("click", (event) => {
 renderChat(0);
 
 const restartChat = () => {
+  failtext.className =
+    "d-flex flex-column text-center text-chat-fail visually-hidden";
   messages.innerHTML = "";
   buttonsChat.className = "buttons-chat-deactivated";
   results.innerHTML = "";
