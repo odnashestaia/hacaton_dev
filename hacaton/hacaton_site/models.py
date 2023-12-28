@@ -45,7 +45,7 @@ class Article(models.Model):
         verbose_name = "Статья"
         verbose_name_plural = "Статьи"
 
-    title = models.CharField(verbose_name="Заголовок")
+    title = models.CharField(max_length=500, verbose_name="Заголовок")
     text = models.TextField(verbose_name="Текст статьи")
     points = models.IntegerField(
         default=0, verbose_name="Очки за прочтение статьи (не работает)"

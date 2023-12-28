@@ -89,7 +89,7 @@ const DATA0 = [
         value: "Может мне стоит куда то перевести деньги?",
         correct: false,
         valueCorrect:
-          "Неверно, мошенникк попытается воспользоваться этим для вывода денег на свои счета",
+          "Неверно, мошенник попытается воспользоваться этим для вывода денег на свои счета",
       },
       {
         id: "3",
@@ -104,7 +104,7 @@ const DATA0 = [
         value: "Я раскрыл тебя, немедленно звоню в полицию",
         correct: false,
         valueCorrect:
-          "Не стоит вступать в спор с мошнником, и угрожать милицией, тогда преступник сменьшей вероятность сменит номер, обращайтесь сразу",
+          "Не стоит вступать в спор с мошенником, и угрожать милицией, тогда преступник сменьшей вероятность сменит номер, обращайтесь сразу",
       },
     ],
   },
@@ -389,7 +389,7 @@ const printMessage = (str, color, id) => {
 const renderResults = () => {
   // Для результатов тестирования
   results.innerHTML =
-    "<div class='w-50 m-auto text-center text-bg-success p-3 mt-3'>Вы успешно прошли интерактив!</div>";
+    "<div class='w-50 m-auto text-center text-bg-success p-3 mt-1'>Вы успешно прошли интерактив!</div>";
 };
 
 const renderIndicator = (currentStep) => {
@@ -400,7 +400,7 @@ chat.addEventListener("click", (event) => {
   if (event.target.classList.contains("btn")) {
     if (DATA.length === Number(dialogAnswers.dataset.currentStep)) {
       buttonsChat.className =
-        "d-flex flex-column justify-content-center mt-3 buttons-chat-visible align-items-center";
+        "d-flex flex-row justify-content-center buttons-chat-visible align-items-center";
       dialogAnswers.innerHTML = "";
       renderResults();
     }
@@ -412,7 +412,7 @@ chat.addEventListener("click", (event) => {
       printMessage(event.target.innerHTML, "#e2ffc9", event.target.id - 1);
       if (DATA.length === Number(dialogAnswers.dataset.currentStep) + 1) {
         buttonsChat.className =
-          "d-flex flex-column justify-content-center mt-3 buttons-chat-visible align-items-center";
+          "d-flex flex-row justify-content-center buttons-chat-visible align-items-center";
         renderResults();
         dialogAnswers.innerHTML = "";
       } else {
@@ -427,7 +427,7 @@ chat.addEventListener("click", (event) => {
       );
       localResult[event.target.id] = event.target.value;
       buttonsChat.className =
-        "d-flex flex-column justify-content-center mt-3 buttons-chat-visible align-items-center";
+        "d-flex flex-row justify-content-center buttons-chat-visible align-items-center";
       dialogAnswers.innerHTML = "";
     }
   }

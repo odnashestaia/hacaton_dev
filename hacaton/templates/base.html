@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <script src="https://unpkg.com/htmx.org@1.9.9"></script>
-    {% block style_css%} {% endblock %}
+    {% block css%} {% endblock %}
   </head>
   <body>
     <!-- Header -->
@@ -90,18 +90,24 @@
 {% block content %}
 
 {% endblock %}
-<div class="border-top d-flex flex-row footer">
-  <footer class="py-5 container">
-    <div class="d-flex align-items-center flex-column pb-3 mb-3 footer-content">            
-      <img src="{% static 'images//svg/footer-logo.svg' %} " alt="" class="f-img">
-      <h5 class="mt-3">Дополнительная информация: </h5>
-      <a href="https://мвд.рф/document/1910260" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">МВД</a>
-      <a href="https://rkn.gov.ru/" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Роскомнадзор</a>
+<div class="mt-5 footer-top">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 container">
+    <p class="col-md-4 mb-0 text-muted">&copy; 2023 Все права защищены</p>
+    <div class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto">
+      <img class="bi me-2" width="80" height="80" src="{% static "images/svg/footer-logo.svg" %}"/>
     </div>
+    <ul class="nav sl-footer col-md-4 justify-content-end footer-links">
+      <li class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"><a href="https://мвд.рф/document/1910260" class="px-2 text-muted">МВД</a></li>
+      <li class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"><a href="https://rkn.gov.ru/" class="px-2 text-muted">Роскомнадзор</a></li>
+      <li class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover"><a href="https://digital.gov.ru/ru/" class="px-2 text-muted">Минцифры</a></li>
+    </ul>
   </footer>
+</div>
 </body>
+
 <script src="{% static 'js/main.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/interactive.js'%}"></script>
-{% block js %} {% endblock %}
+
+
 </html>

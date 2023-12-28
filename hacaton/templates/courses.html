@@ -1,64 +1,49 @@
 {% extends 'base.html' %} {% load static %} {% block title %} Курсы {%endblock%}
 {% block content %}
 
-<div class="content">
+<div class="content" >
 	<div class="container">
-		<div class="title-sheet"><h2 class="text-center mb-2">Курсы</h2></div>
+		<div class="title-sheet">
+			<h2 class="text-center mb-2">Курсы</h2>
+		</div>
 		<div class="kurs text-center">
 			{% for course in courses %}
-				<h5 class="mt-5">{{forloop.counter}}. {{ course.title }}</h5>
-				<div class="news mt-2"> 
-					<div class="row d-flex justify-content-center">
-						<div class="col-md-4 mt-3">
-							<div class="card g-h">
-								<img src="{{ course.img.url }}" class="card-img-top" alt="..." />
-								<div class="card-body">
-									<h5 class="card-title text-center">
-										Статья. {{ course.title }}
-									</h5>
-									<p class="card-text"></p>
-									<div class="mt-3 mb-3 d-flex justify-content-center">
-										<a href="{% url "article" course.pk %}"
-											><input
-												type="button"
-												class="btn btn-primary"
-												value="Прочитать"
-										/></a>
+					<div class="kurs text-center">
+						<h5 class="mt-4">{{forloop.counter}}. {{ course.title }}</h5>
+						<section class="grid-kurs">
+							<article class="grid-item-kurs">
+								<div class="image">
+									<img src="{{ course.img.url }}" alt="..." />
+								</div>
+								<div class="info-kurs">
+									<h2>Статья. {{ course.title }}</h2>
+									<div class="button-wrap">
+										<a href="{% url "article" course.pk %}"><input class="btn btn-primary"
+												type="button" value="Читать"></a>
 									</div>
 								</div>
-							</div>
-						</div>
-						<div class="col-md-4 mt-3">
-							<div class="card g-h">
-								<img
-									src="{{ course.test_img.url }}"
-									class="card-img-top"
-									alt="..."
-								/>
-								<div class="card-body">
-									<h5 class="card-title text-center">
-										Тест. {{ course.test_name }}
-									</h5>
-									<div class="mt-3 mb-3 d-flex justify-content-center">
-										{% if not  course.user_done %}
-										<a href="{% url "get_quiz" course.test_pk %}"
-											><input
-												type="button"
-												class="btn btn-primary"
-												value="Пройти"
-										/></a>
+							</article>
+							<article class="grid-item-kurs">
+								<div class="image">
+									<img src="{{ course.test_img.url }}" />
+								</div>
+								<div class="info-kurs">
+									<h2>Тест. {{ course.test_name }}</h2>
+									<div class="button-wrap">
+										{% if not course.user_done %}
+										<a href="{% url "get_quiz" course.test_pk %}"><input type="button"
+												class="btn btn-primary" value="Пройти" /></a>
 										{% else %}
-											<div class='btn btn-success'> Пройдено </div>
+										<div class='btn btn-success'> Пройдено </div>
 										{% endif %}
-										
 									</div>
 								</div>
-							</div>
-						</div>
+							</article>
+						</section>
 					</div>
 				</div>
-			{% endfor %}
+				{% endfor %}
+			</div>
 		</div>
 	</div>
-</div>
-{% endblock %}
+	{% endblock %}

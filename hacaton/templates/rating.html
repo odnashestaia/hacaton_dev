@@ -1,34 +1,30 @@
 {% extends 'base.html' %} {% load static %} {% block title %} Рейтинг
 {%endblock%} {% block content %}
-<div class="content">
+<div class="content" style="min-height: 70%">
 	<div class="container">
 		<div class="title-sheet">
-			<div class="title-sheet">
-				<h1 class="text-center">Рейтинг пользователей</h1>
-			</div>
+			<h2 class="text-center mb-2">Пользовательский рейтинг</h2>
 		</div>
-		<div class="stite shadow-lg p-3 mb-5 rounded">
-			<table class="table">
-				<thead>
-					<tr>
-						<th scope="col">Место</th>
-						<th scope="col">Имя</th>
-						<th scope="col">Никнейм</th>
-						<th scope="col">Очки</th>
-					</tr>
-				</thead>
-				<tbody>
-					{% for user in users %}
-					<tr>
-						<th scope="row">{{forloop.counter}}</th>
-						<td>{{user.username}}</td>
-						<td>{{user.name}}</td>
-						<td>{{user.point}}</td>
-					</tr>
-					{% endfor %}
-				</tbody>
-			</table>
-		</div>
+		<table class="table table-bordered shadow-lg mt-5 rating">
+			<thead class="table-success">
+				<tr>
+					<th scope="col" class="mesto">Место</th>
+					<th scope="col" class="name-top">Имя</th>
+					<th scope="col" class="username-top">Юзернейм</th>
+					<th scope="col" class="balls">Количество баллов</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for user in users %}
+				<tr class="top-user">
+					<th scope="row">{{forloop.counter}}</th>
+					<td>{{user.name}}</td>
+					<td>{{user.username}}</td>
+					<td>{{user.point}}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
 	</div>
 </div>
 {%endblock%}

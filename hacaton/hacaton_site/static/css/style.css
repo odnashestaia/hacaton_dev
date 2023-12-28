@@ -1,314 +1,627 @@
 * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* Подключение шрифтов */
 @font-face {
-	font-family: 'Extended';
-	src: url('fonts/Asket Extended.ttf');
+  font-family: "Extended";
+  src: url("fonts/Asket Extended.ttf");
 }
 @font-face {
-	font-family: 'Light';
-	src: url('fonts/Asket Extended Light.ttf');
+  font-family: "Light";
+  src: url("fonts/Asket Extended Light.ttf");
 }
 @font-face {
-	font-family: 'Thin';
-	src: url('fonts/Asket Extended Thin.ttf');
+  font-family: "Thin";
+  src: url("fonts/Asket Extended Thin.ttf");
 }
 @font-face {
-	font-family: 'Bold';
-	src: url('fonts/Asket Extended Bold.ttf');
+  font-family: "Bold";
+  src: url("fonts/Asket Extended Bold.ttf");
 }
 @font-face {
-	font-family: 'Medium';
-	src: url('fonts/Asket Extended Medium.ttf');
+  font-family: "Medium";
+  src: url("fonts/Asket Extended Medium.ttf");
 }
 @font-face {
-	font-family: 'Italic';
-	src: url('fonts/Asket Extended Italic.ttf');
+  font-family: "Italic";
+  src: url("fonts/Asket Extended Italic.ttf");
 }
 @font-face {
-	font-family: 'Thin-italic';
-	src: url('fonts/Asket Extended Thin Italic.ttf');
+  font-family: "Thin-italic";
+  src: url("fonts/Asket Extended Thin Italic.ttf");
 }
 
 /* Приписка шрифтов к классу */
 .extended {
-	font-family: 'Extended';
+  font-family: "Extended";
 }
 .light {
-	font-family: 'Light';
+  font-family: "Light";
 }
 .thin {
-	font-family: 'Thin';
+  font-family: "Thin";
 }
 .bold {
-	font-family: 'Bold';
+  font-family: "Bold";
 }
 .medium {
-	font-family: 'Medium';
+  font-family: "Medium";
 }
 .italic {
-	font-family: 'Italic';
+  font-family: "Italic";
 }
 .thin-italic {
-	font-family: 'Thin-italic';
+  font-family: "Thin-italic";
 }
 
 body {
-	height: 100vh;
+  height: 100vh;
 }
 
 /* Стили главная страница */
 .welcome {
-	margin-top: 150px;
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
+  margin-top: 150px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .welcome img {
-	width: 100%;
+  width: 100%;
 }
 
 /* Стили о нас */
 .about-us img {
-	width: 140px;
-	height: 140px;
+  width: 140px;
+  height: 140px;
 }
 .cyber {
-	margin-left: auto;
-	margin-right: auto;
-	width: 99%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 .cyber img {
-	height: 60%;
-	width: 60%;
+  height: 60%;
+  width: 60%;
+}
+@media only screen and (max-width: 600px) {
+  .about-us img {
+    width: 100px;
+    height: 100px;
+  }
+  .about-us h5 {
+    font-size: 18px;
+  }
+  .about-us p {
+    font-size: 12px;
+  }
+  .about-us button {
+    font-size: 12px;
+  }
 }
 
 /* Стили шапки */
 .navbar-nav a {
-	color: #ffffff;
+  color: #ffffff;
 }
 
 /* Стили контент */
 .content {
-	margin-top: 76px;
+  margin-top: 76px;
+  min-height: 100%;
 }
 
-/* Стили интерактива */
+/* Стили чата с мошенником */
 .chat {
-	width: 100%;
-	margin-right: auto;
-	margin-left: auto;
-	border: 1px solid black;
-	margin-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid black;
 }
 .chat p {
-	margin: 0;
+  margin: 0;
 }
 .chat-header {
-	padding: 10px;
-	background-color: #075e55;
-	color: #ffffff;
-	font-size: 24px;
+  padding: 10px;
+  background-color: #075e55;
+  color: #ffffff;
+  font-size: 24px;
 }
 .circle {
-	width: 70px;
-	height: 70px;
-	background: rgb(165, 165, 165);
+  width: 70px;
+  height: 70px;
+  background: rgb(165, 165, 165);
 }
 
 .chat-content {
-	border-top: 1px solid black;
-	background: #efe7de;
+  border-top: 1px solid black;
+  background: #efe7de;
 }
 .messages {
-	min-height: 700px;
-	padding: 10px;
-	max-height: 50vh;
-	overflow: auto;
+  min-height: 500px;
+  padding: 10px;
+  max-height: 50vh;
+  overflow: auto;
 }
 .get-message {
-	overflow-wrap: break-word;
-	padding: 10px;
-	border-radius: 0 20px 20px 20px;
-	background: #ffffff;
+  overflow-wrap: break-word;
+  padding: 10px;
+  border-radius: 0 20px 20px 20px;
+  background: #ffffff;
 }
 .post-message {
-	overflow-wrap: break-word;
-	padding: 10px;
-	background: #e2ffc9;
-	border-radius: 20px 0 20px 20px;
+  overflow-wrap: break-word;
+  padding: 10px;
+  background: #e2ffc9;
+  border-radius: 20px 0 20px 20px;
 }
 .dialog {
-	background: #efe7de;
-	margin-top: 10px;
-	border-top: 1px solid black;
+  background: #efe7de;
+  border-top: 1px solid black;
 }
 .dialog .btn {
-	background: #e2ffc9;
-	color: black;
-	width: 90%;
-	margin: 10px auto;
+  background: #e2ffc9;
+  color: black;
+  width: 90%;
+  margin: 3px auto;
 }
 .dialog .btn:hover {
-	background-color: #cdffa1;
+  background-color: #cdffa1;
 }
 .buttons-chat-deactivated * {
-	display: none;
+  display: none;
 }
+@media only screen and (max-width: 600px) {
+  .messages {
+    min-height: 200px;
+    padding: 10px;
+    max-height: 50vh;
+    overflow: auto;
+  }
+  .chat {
+    font-size: 10px;
+  }
 
-/* Стили новостей  */
-.news img {
-	height: 250px;
 }
 
 /* Стили курсов */
 .kurs {
-	width: 100%;
-	margin-right: auto;
-	margin-left: auto;
-	margin-top: 50px;
-}
-.title-test {
-	width: 60%;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
 }
 .el-kurs {
-	justify-content: space-between;
-	margin-right: auto;
-	margin-left: auto;
+  justify-content: space-between;
+  margin-right: auto;
+  margin-left: auto;
 }
 .test {
-	width: 100%;
-	margin-right: auto;
-	margin-left: auto;
-	margin-top: 50px;
-	background: #fff;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+  background: #fff;  
+}
+@media only screen and (max-width: 600px) {
+  .test h6 {
+    font-size: 12px;
+  }
+  .test label {
+    font-size: 12px;
+  }
 }
 .stite {
-	width: 90%;
-	margin-right: auto;
-	margin-left: auto;
-	margin-top: 50px;
-	background: #fff;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+  background: #fff;
+}
+@media only screen and (max-width: 600px) {
+  .stite p {
+    font-size: 10px;
+  }
+  .stite h5 {
+    font-size: 16px;
+  }
 }
 .image-stite {
-	width: 100%;
+  width: 100%;
 }
 .panel-img {
-	width: 130px;
+  width: 130px;
 }
 .f-img {
-	width: 100px;
+  width: 100px;
 }
 .title-sheet {
-	width: 100%;
-	margin-right: auto;
-	margin-left: auto;
-	margin-top: 100px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 100px;
 }
 .radio {
-	background-color: rgb(226, 221, 221);
-}
-
-/* Стили подвала */
-.footer {
-	margin-top: 5%;
+  background-color: rgb(226, 221, 221);
 }
 
 /* Стили форм регистрации и авторизации */
 .form-logins {
-	width: 100%;
-	padding: 25px;
+  width: 100%;
+  padding: 25px;
 }
-.container-form {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	max-width: 550px;
-	width: 95%;
-	background: #fff;
-	border-radius: 7px;
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+.container-form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  max-width: 550px;
+  width: 95%;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
 }
-.body-form {
-	min-height: 100vh;
-	width: 100%;
-	background: #e6eeec;
+.body-form{
+  min-height: 100vh;
+  width: 100%;
+  background: #e6eeec;
 }
 .input-form {
-	height: 60px;
-	width: 100%;
-	padding: 0 15px;
-	font-size: 17px;
-	margin-bottom: 1.3rem;
-	border: 1px solid #ddd;
-	border-radius: 6px;
-	outline: none;
+  height: 60px;
+  width: 100%;
+  padding: 0 15px;
+  font-size: 17px;
+  margin-bottom: 1.3rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
 }
 
 .g-h:hover {
-	box-shadow: 5px 5px 5px 5px #009579;
+  box-shadow: 5px 5px 5px 5px #009579 ;
 }
 
 /* Стили таблицы пользовательского рейтинга */
 .rating {
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
-thead th,
-.top-user {
-	text-align: center;
+thead th, .top-user {
+  text-align: center;
 }
 .mesto {
-	width: 5%;
+  width: 5%;
 }
 .balls {
-	width: 15%;
+  width: 15%;
 }
-.username-top {
-	width: 35%;
+.username-top  {
+  width: 35%;
 }
 .name-top {
-	width: 45%;
+  width: 45%;
 }
 
 /* Стили выпадающего профиля */
 .dropdown {
-	position: relative;
-	display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 .dropdown-content {
-	margin-left: 10px;
-	display: none;
-	position: absolute;
-	background-color: #f1f1f1;
-	min-width: 190px;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-	z-index: 1;
-	padding: 5px;
+  margin-left: 10px;
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 190px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  padding: 5px;
 }
 .dropdown-content p {
-	color: black;
-	padding: 5px 5px;
-	text-decoration: none;
-	display: block;
+  color: black;
+  padding: 5px 5px;
+  text-decoration: none;
+  display: block;
 }
 .dropdown-content hr {
-	margin: 5px;
+  margin: 5px;
 }
 .dropdown-content a:hover {
-	background-color: #ddd;
+  background-color: #ddd;
 }
 .show {
-	display: block;
+  display: block;
 }
 .btn-profile {
-	background: #e95035;
+  background: #E95035;
 }
 .btn-profile:hover {
-	background: red;
+  background: red;
+}
+
+/* Стили подвала */
+footer {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.footer-top {
+  border-top: 1px dotted grey;
+}
+
+/* Стили Новостей, списка курсов, списка интерактивов */
+.grid * {
+  box-sizing: border-box;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 30px;
+  row-gap: 30px;
+  padding: 20px 0;
+}
+.grid-kurs {
+  display: grid;
+  grid-template-columns: 450px 450px;
+  column-gap: 30px;
+  row-gap: 30px;
+  padding: 20px 0;
+  justify-content: center;
+}
+.grid-games {
+  display: grid;
+  grid-template-columns: 450px 450px;
+  column-gap: 30px;
+  row-gap: 30px;
+  padding: 20px 0;
+  justify-content: center;
+}
+/* Кол-во блоков на разных экранах */
+@media only screen and (max-width: 1200px) {
+  .grid {
+      grid-template-columns: 1fr 1fr 1fr;
+  }
+  .grid-kurs {
+    grid-template-columns: 450px 450px;
+  }
+  .grid {
+    grid-template-columns: 450px 450px;
+}
+}
+@media only screen and (max-width: 1024px) {
+  .grid {
+      grid-template-columns: 90%;
+      justify-content: center;
+  }
+  .grid-kurs {
+    grid-template-columns: 350px 350px;
+  }
+  .grid-games {
+    grid-template-columns: 350px 350px;
+}
+}
+@media only screen and (max-width: 600px) {
+  .grid {
+      grid-template-columns: 1fr;
+  }
+  .grid-kurs {
+    grid-template-columns: 1fr;
+  }
+  .grid-games {
+    grid-template-columns: 1fr;
+}
+  footer { 
+    font-size: 12px; 
+    }
+    .sl-footer {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .welcome h2 {
+      font-size: 16px;
+    }
+    .cyber h2 {
+      font-size: 16px;
+    }
+    .about-img img {
+      margin-top: 15px;
+    }
+}
+@media only screen and (max-width: 2560px) {
+  footer { 
+    font-size: 20px; 
+    }
+    .footer-links {
+      font-size: 20px;
+    }
+}
+@media only screen and (max-width: 1920px) {
+  footer { 
+    font-size: 16px; 
+    }
+    .footer-links {
+      font-size: 16px;
+    }
+}
+@media only screen and (max-width: 991px) {
+  footer {
+    font-size: 13px;
+  }
+  .footer-links {
+    font-size: 13px;
+  }
+}
+.grid-item {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2), 0 4px 6px rgba(0,0,0,0.2);
+  transition: box-shadow .3s;
+  width: 100%;
+  height: 100%;  
+}
+.grid-item-kurs {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2), 0 4px 6px rgba(0,0,0,0.2);
+  transition: box-shadow .3s;
+  width: 100%;
+  height: 100%;  
+}
+.grid-item-games {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2), 0 4px 6px rgba(0,0,0,0.2);
+  transition: box-shadow .3s;
+  width: 100%;
+  height: 100%;  
+}
+.grid-item .image {
+  height: 200px;
+  overflow: hidden;
+} 
+.grid-item-kurs .image {
+  height: 200px;
+  overflow: hidden;
+}
+.grid-item-games .image {
+  height: 200px;
+  overflow: hidden;
+}
+.grid-item .info {
+  position: relative;
+  height: calc(100% - 200px);
+  padding: 16px 14px 80px 14px;
+}
+.grid-item-kurs .info-kurs {
+  position: relative;
+  height: calc(100% - 200px);
+  padding: 16px 14px 80px 14px;
+}
+.grid-item-games .info-games {
+  position: relative;
+  height: calc(100% - 200px);
+  padding: 16px 14px 80px 14px;
+}
+.grid-item:hover {
+  box-shadow: 0 4px 12px #009579, 0 16px 20px #009579;
+}
+.grid-item-kurs:hover {
+  box-shadow: 0 4px 12px #009579, 0 16px 20px #009579;
+}
+.grid-item-games:hover {
+  box-shadow: 0 4px 12px #009579, 0 16px 20px #009579;
+}
+.grid-item .image img  {
+  transition: transform 280ms ease-in-out;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    
+}
+.grid-item-kurs .image img  {
+  transition: transform 280ms ease-in-out;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    
+}
+.grid-item-games .image img  {
+  transition: transform 280ms ease-in-out;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    
+}
+.grid-item:hover .image img  {
+  transform: scale(1.1);
+}
+.grid-item-kurs:hover .image img  {
+  transform: scale(1.1);
+}
+.grid-item-games:hover .image img  {
+  transform: scale(1.1);
+}
+.info h2 {
+  font-family: 'Roboto', Тahoma, sans-serif;
+  color: #337AB7;
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0;
+  text-align: center;
+}
+.info-kurs h2 {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0;
+  text-align: center;
+}
+.info-games h2 {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0;
+  text-align: center;
+}
+.info-text p {
+  font-size: 15px;
+  line-height: 20px;
+  font-family: Verdana, sans-serif; 
+  margin-bottom: 10px;
+}
+.info-text p:last-child {
+  margin-bottom: 0;
+}
+.grid-item .button-wrap {
+  display: block;
+  width: 100%;
+  position: absolute;
+  bottom: 14px;
+  left: 0;
+  text-align: center;
+}
+.grid-item-kurs .button-wrap {
+  display: block;
+  width: 100%;
+  position: absolute;
+  bottom: 14px;
+  left: 0;
+  text-align: center;
+}
+.grid-item-games .button-wrap {
+  display: block;
+  width: 100%;
+  position: absolute;
+  bottom: 14px;
+  left: 0;
+  text-align: center;
+}
+
+.ygadai {
+  margin-left: auto;
+  margin-right: auto;
+}
+.buttons-ygadai {
+  margin-left: auto;
+  margin-right: auto;
+}
+.ygadai img {
+  width: 100%;
+  height: 600px;
+}
+.ygadai img {
+  box-shadow: 1px 1px 10px rgb(0, 0, 0);
+}
+.ygadai img:hover {
+  /* transform: scale(1.05); */
+  box-shadow: 1px 1px 10px rgb(0, 255, 13);
+}
+.otvet {
+  margin-top: 0px;
+}
+
+@media only screen and (max-width: 600px) {
+  .button-under {
+    margin-top: 10px;
+  } 
+  .text-fish {
+    font-size: 14px;
+  }
+  .ygadai img{
+    width: 100%;
+    height: 200px;
+  }
 }

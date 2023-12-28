@@ -10,14 +10,15 @@
 			<form hx-post="{% url "get_answers" category.id %}" hx-target="#submit" >
 				{% csrf_token %}
 				{% for question in data %}
-				<h6>{{question.num}}. {{question.question}}</h6>
+				<h6 class="mt-4">{{question.num}}. {{question.question}}</h6>
 				{% for answer in question.answers %}
-				<div class="form-check">
+				<div class="form-check ">
 					<input
 						class="form-check-input"
 						type="radio"
 						required
 						name="q{{question.num}}o"
+						id="q{{question.num}}o{{forloop.counter}}"
 						value="{{answer.is_correct}}"
 					/>
 					<label
